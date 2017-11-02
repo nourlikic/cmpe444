@@ -2,24 +2,43 @@ pragma solidity 0.4.18;
 
 contract SimpleStorage{
 
-    uint value;
+    uint integerValue;
+    
+    mapping(string=>string) keyValue;
+
     address creator;
 
     function SimpleStorage(){
          // default value is 1000
-         value = 1000;
+         integerValue = 1000;
          creator = msg.sender;
 	}
 
-    function setValue(uint _value){
-         value = _value;
+    function setIntegerValue(uint _value)
+    public{
+         integerValue = _value;
     }
 
-    function getValue() constant returns(uint){
-         return value;
+    function getIntegerValue() 
+    constant 
+    returns(uint){
+         return integerValue;
     }
 
-    function getCreator() constant returns(address){
+    function getValue(string key)
+    constant
+    returns(string){
+        return keyValue[key];
+    }
+
+    function setKeyValue(string key,string value)
+    public{
+        keyValue[key] = value;
+    }
+
+    function getCreator() 
+    constant 
+    returns(address){
          return creator;
     }
 }

@@ -1,4 +1,4 @@
-pragma solidity 0.4.16;
+pragma solidity 0.4.18;
 
 contract CMPE444Token{
 
@@ -9,7 +9,8 @@ contract CMPE444Token{
 		balances[msg.sender] = totalSupply;
 	}
 
-	function transfer(address receiver,uint amount){
+	function transfer(address receiver,uint amount)
+	public{
 		// Check if balance is sufficient
 		require(balances[msg.sender] >= amount);
 		balances[msg.sender] -= amount;
