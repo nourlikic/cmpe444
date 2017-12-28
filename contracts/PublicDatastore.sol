@@ -16,6 +16,13 @@ contract PublicDatastore {
 	//bytes32 value
 	mapping(address=>mapping(bytes32=>bytes32)) datastore;
 
+	/*
+	Filtering events
+	> datastore = eth.contract(ABI).at(ADDR)
+	> eventTopic = web3.sha3(address,bytes32)
+	> filter = eth.filter({fromBlock:0,toBlock:'latest',address:datastore.address,topics:[eventTopic]}) 
+	> filter.get()
+	*/
 	event ValueSet(address indexed sender, bytes32 indexed key);
 
 	function setValue(bytes32 key,bytes32 value){

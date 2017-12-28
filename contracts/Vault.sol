@@ -26,7 +26,7 @@ contract Vault is DepositableVault{
 	}
 
 	function depositEther() payable{
-		ethBalances[msg.sender] = msg.value;
+		ethBalances[msg.sender] += msg.value;
 	}
 
 	function transferEther(address receiver,uint value){

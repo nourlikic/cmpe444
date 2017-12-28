@@ -21,6 +21,15 @@ contract PublicSharesOfBilgiUniversity is DepositableTokenContract{
 		balances[msg.sender] = totalSupply;
 	}
 
+	/*
+	me = eth.accounts[0]
+	nameserver = eth.contract(ADDR).at(ABI)
+	shares = eth.contract(ABI).at(ADDR)
+	shares.getBalanceOf(me)
+	... if bigger than 0
+	shares.transfer(nameserver.owner(web3.sha3(selamicelik.bilgi)),AMOUNT)
+	*/
+
 	function transfer(address receiver,uint amount)
 	public returns(bool){
 		// Checks if balance is sufficient

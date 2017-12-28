@@ -14,6 +14,15 @@ contract NameServer{
 	// First-in owns
 	mapping(bytes32=>address) nameStore;
 
+	/*
+	How to register
+	> nameserver = eth.contract(ADDR).at(ABI)
+	> myNameHash = web3.sha3('onurkilic.bilgi')
+	> nameserver.register(myNameHash)
+	... mining
+	> nameserver.owner(myNameHash)
+	*/
+
 	function register(bytes32 name){
 		require(nameStore[name] == address(0));
 		nameStore[name] = msg.sender;
